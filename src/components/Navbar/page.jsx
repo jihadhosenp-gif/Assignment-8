@@ -20,21 +20,23 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex="-1"
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-blue-950">
                             {menuItems}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Tiles Gallery
+                    <a className="btn btn-ghost text-xl text-black">Tiles Gallery
                         </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 text text-blue-950">
                         {menuItems}
                         
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Login</a>
+                <div className="navbar-end text-blue-950">
+                    <Link className="btn" href="/login">
+                        Login
+                    </Link>
                 </div>
             </div>
         </div>
