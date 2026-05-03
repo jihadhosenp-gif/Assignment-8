@@ -1,3 +1,4 @@
+
 import Product from "@/components/Product/page";
 
 
@@ -16,8 +17,10 @@ const tiles = async () => {
             {
                 tileData.map(tile => <Product key={tile.id} tile={tile} />)
             }
+            
                         
            </div>
+           
         </div>
     );
 };
