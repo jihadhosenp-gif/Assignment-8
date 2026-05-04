@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tiles Gallery
 
-## Getting Started
+A modern and responsive **Tiles Gallery Web Application** built with **Next.js (App Router)**.  
+This project allows users to explore beautiful tile designs, view details, and manage their profiles with authentication support.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+##  Project Purpose
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The purpose of this project is to build a fully functional tile showcase platform where users can:
 
-## Learn More
+- Browse different tile designs
+- Search tiles easily
+- View detailed tile information
+- Register and login securely
+- Manage personal profile information
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##  Key Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+###  Home Page
+- Hero banner with "Discover Your Perfect Aesthetic"
+- Browse Now button → redirects to All Tiles page
+- Marquee with latest updates
+- Featured tiles (Top 4 from server)
+- Each tile has a "View Details" button
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+###  All Tiles Page
+- Search bar for filtering tiles by title
+- Grid layout of tile cards
+- Each card includes:
+  - Image
+  - Title
+  - Details button
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+###  Tile Details Page
+- High-resolution tile preview
+- Full tile information:
+  - Title
+  - Description
+  - Category
+  - Material
+  - Price
+  - Dimensions
+  - Tags
+
+---
+
+###  Authentication System
+
+#### Login Page
+- Email & Password login form
+- Google social login
+- Error handling with toast message
+- Redirect to Home after successful login
+- Link to Register page
+
+#### Register Page
+- Name
+- Email
+- Photo URL
+- Password
+- Google login option
+- Redirect to Login page after successful registration
+
+---
+
+###  My Profile (Private Route)
+- Display logged-in user information
+- Show name, email, and photo
+- Update feature:
+  - Update Name
+  - Update Image URL
+- Redirect to update form page
+
+---
+
