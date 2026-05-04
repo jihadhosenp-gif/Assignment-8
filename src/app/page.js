@@ -1,6 +1,6 @@
 import BannerPage from "@/components/Banner/page";
 import FavoriteTiles from "@/components/FavoriteTiles/page";
-import Footer from "@/components/footer/page";
+import Footer from "@/components/Footer/page";
 import SubscribeSection from "@/components/SubscribeSection/page";
 
 
