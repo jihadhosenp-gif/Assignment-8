@@ -1,10 +1,12 @@
-
+"use client";
+import { useRouter } from "next/navigation";
 
 const Product = ({ tile}) => {
     const { title, description, image, price, currency } = tile;
+    const router = useRouter();
     return (
         <div>
-            <div className="card bg-base-300 w-96 shadow-sm hover:shadow-lg transition-shadow duration-300">
+            <div className="card bg-base-300 w-96 shadow-sm hover:shadow-lg transition-shadow duration-300" onClick={() => router.push(`/tiles/${tile.id}`)}>
                 <figure>
                     <img
                         src={image}
