@@ -1,16 +1,16 @@
-const API = process.env.NEXT_PUBLIC_API_URL;
+import fs from "fs";
+import path from "path";
 
 const getSingleTile = async (id) => {
     try {
-        const res = await fetch(`${API}/tiles/${id}`, {
-            cache: "no-store",
-        });
+        const filePath = path.join(process.cwd(), "public/data/tiles.json");
 
-        if (!res.ok) {
-            throw new Error("Failed to fetch tile");
-        }
+        const jsonData = fs.readFileSync(filePath, "utf-8");
+        const data = JSON.parse(jsonData);
 
-        return res.json();
+        const tile = data.tiles.find((t) => String(t.id) === String(id));
+
+        return tile || null;
     } catch (error) {
         console.log("Single Tile Error:", error);
         return null;
@@ -19,17 +19,15 @@ const getSingleTile = async (id) => {
 
 const TileDetails = async ({ params }) => {
 
+  
     const { id } = await params;
 
     const tile = await getSingleTile(id);
 
-    // Error fallback
     if (!tile) {
         return (
             <div className="flex items-center justify-center min-h-screen">
-                <h1 className="text-2xl text-red-500">
-                    Tile not found
-                </h1>
+                <h1 className="text-2xl text-red-500">Tile not found</h1>
             </div>
         );
     }
@@ -39,7 +37,6 @@ const TileDetails = async ({ params }) => {
 
             <div className="card lg:card-side bg-base-100 shadow-sm max-w-6xl mx-auto mt-10">
 
-                {/* Image */}
                 <figure className="p-4">
                     <img
                         src={tile.image}
@@ -48,7 +45,6 @@ const TileDetails = async ({ params }) => {
                     />
                 </figure>
 
-                {/* Content */}
                 <div className="card-body">
 
                     <h2 className="card-title text-blue-950 text-3xl">
@@ -59,27 +55,12 @@ const TileDetails = async ({ params }) => {
                         {tile.description}
                     </p>
 
-                    <div className="mt-4">
-                        <ul className="list-disc list-inside space-y-2">
-
-                            <li className="text-blue-950">
-                                Price: ${tile.price}
-                            </li>
-
-                            <li className="text-blue-950">
-                                Currency: {tile.currency}
-                            </li>
-
-                            <li className="text-blue-950">
-                                Dimensions: {tile.dimensions}
-                            </li>
-
-                            <li className="text-blue-950">
-                                Material: {tile.material}
-                            </li>
-
-                        </ul>
-                    </div>
+                    <ul className="list-disc list-inside mt-4">
+                        <li className="text-blue-950 text-2xl">Price: ${tile.price}</li>
+                        <li className="text-blue-950 text-2xl">Currency: {tile.currency}</li>
+                        <li className="text-blue-950 text-2xl">Dimensions: {tile.dimensions}</li>
+                        <li className="text-blue-950 text-2xl">Material: {tile.material}</li>
+                    </ul>
 
                 </div>
 
