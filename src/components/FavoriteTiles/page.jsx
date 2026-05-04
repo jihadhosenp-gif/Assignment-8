@@ -4,7 +4,7 @@ import Link from "next/link";
 
 
 const gotTiles = async () => {
-    const res = await fetch('http://localhost:5000/tiles');
+    const res = await fetch('NEXT_PUBLIC_API_URL');
 
     return res.json();
 }

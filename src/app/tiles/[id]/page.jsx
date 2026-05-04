@@ -1,7 +1,7 @@
 
 
 const getSingleTile = async (id) => {
-    const res = await fetch(`http://localhost:5000/tiles/${id}`, {
+    const res = await fetch(`NEXT_PUBLIC_API_URL/${id}`, {
         cache: "no-store",
     });
 

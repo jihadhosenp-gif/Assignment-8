@@ -4,7 +4,7 @@ import Product from "@/components/Product/page";
 
 
 const gotTiles = async () => {
-    const res = await fetch('http://localhost:5000/tiles');
+    const res = await fetch('NEXT_PUBLIC_API_URL/tiles');
 
     return res.json();
 }
